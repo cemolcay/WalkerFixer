@@ -10,6 +10,6 @@
 
 @interface WalkerFixer : NSObject
 
-- (void)fixFile:(NSString *)filePath;
+- (void)fixFileWithMainDirectory:(NSString *)mainDirectory andFileDirectory:(NSString *)fileDirectory;
 
 @end

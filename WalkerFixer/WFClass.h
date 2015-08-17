@@ -13,9 +13,15 @@
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSArray *properties;
 
-- (instancetype)initWithLine:(NSString *)line;
+@property (nonatomic, strong) NSString *mainDirectory;
+@property (nonatomic, strong) NSString *fileDirectory;
+
+- (instancetype)initWithMainDirectory:(NSString *)main andFileDirectory:(NSString *)file;
 
 - (NSString *)write;
 - (void)save;
+
+- (NSString *)originalFilePath;
+- (NSString *)fixFilePath;
 
 @end

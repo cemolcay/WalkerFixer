@@ -12,14 +12,14 @@
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         
-        NSString *dir = [NSString stringWithFormat:@"%@/Desktop/yemeksepeti_ios/yemeksepeti/YemeksepetiApi/BaseApi", NSHomeDirectory()];
+        NSString *dir = [NSString stringWithFormat:@"%@/Desktop/yemeksepeti_ios/yemeksepeti/YemeksepetiApi/", NSHomeDirectory()];
         NSDirectoryEnumerator *de = [[NSFileManager defaultManager] enumeratorAtPath:dir];
         
         WalkerFixer *fixer = [[WalkerFixer alloc] init];
 
         for (NSString *file in de)
             if ([[file pathExtension] isEqualToString:@"swift"])
-                [fixer fixFile:[NSString stringWithFormat:@"%@/%@", dir, file]];
+                [fixer fixFileWithMainDirectory:dir andFileDirectory:file];
         
     }
     

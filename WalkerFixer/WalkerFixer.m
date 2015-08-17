@@ -7,21 +7,13 @@
 //
 
 #import "WalkerFixer.h"
+#import "WFClass.h"
 
 @implementation WalkerFixer
 
-- (void)fixFile:(NSString *)filePath {
-    
-    NSLog(@"%@", [self readFile:filePath]);
-    
-}
-
-- (NSString *)readFile:(NSString *)path {
-    return [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
-}
-
-- (NSArray *)getClasses:(NSString *)file {
-    return @[];
+- (void)fixFileWithMainDirectory:(NSString *)mainDirectory andFileDirectory:(NSString *)fileDirectory {
+    WFClass *fix = [[WFClass alloc] initWithMainDirectory:mainDirectory andFileDirectory:fileDirectory];
+    [fix save];
 }
 
 @end

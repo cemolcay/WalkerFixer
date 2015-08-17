@@ -21,7 +21,7 @@
         self.fileDirectory = file;
         
         NSString *file = [self readFile:[self mainDirectory]];
-        
+        [self detect:file];
     }
     
     return self;
@@ -36,6 +36,21 @@
 
 - (NSString *)fixFilePath {
     return [NSString stringWithFormat:@"%@/fix/%@", self.mainDirectory, self.fileDirectory];
+}
+
+
+#pragma mark - Detection
+
+- (void)detect:(NSString *)file {
+
+}
+
+- (void)detectClass {
+
+}
+
+- (void)detectProperties {
+
 }
 
 
@@ -87,6 +102,7 @@
     
     NSString *new = [self write];
     NSString *savePath = [self fixFilePath];
+    
     [[NSFileManager defaultManager] createDirectoryAtPath:[savePath stringByDeletingLastPathComponent] withIntermediateDirectories:YES attributes:nil error:nil];
 
     [new writeToFile:savePath atomically:YES encoding:NSUTF8StringEncoding error:nil];

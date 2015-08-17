@@ -24,4 +24,7 @@
 - (NSString *)originalFilePath;
 - (NSString *)fixFilePath;
 
+- (void)detectClass;
+- (void)detectProperties;
+
 @end

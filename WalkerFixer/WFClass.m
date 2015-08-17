@@ -84,7 +84,7 @@
     NSString *func = @"\n\toverride func mapping(map: Map) {\n";
     
     for (WFProperty *prop in self.properties) {
-        func = [func stringByAppendingFormat:@"\t%@ <- map[\"%@\"]\n", prop.name, prop.name];
+        func = [func stringByAppendingString:[prop fixedLine]];
     }
 
     func = [func stringByAppendingString:@"\n\t}"];

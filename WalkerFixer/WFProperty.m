@@ -36,4 +36,8 @@
     return [str substringToIndex:str.length-len];
 }
 
+- (NSString *)fixedLine {
+    return [NSString stringWithFormat:@"\t%@ <- map[\"%@\"]\n", self.name, self.name];
+}
+
 @end

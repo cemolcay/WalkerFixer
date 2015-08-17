@@ -16,5 +16,6 @@
 @property (nonatomic, strong) NSString *type;
 
 - (instancetype)initWithLine:(NSString *)line;
+- (NSString *)fixedLine;
 
 @end

@@ -66,13 +66,26 @@
 - (NSString *)write {
     NSString *new = @"";
     new = [new stringByAppendingString:[self writeHeader]];
+    new = [new stringByAppendingString:[self writeProperties]];
     new = [new stringByAppendingString:[self writeInit]];
     new = [new stringByAppendingString:[self writeMapperFunc]];
+    new = [new stringByAppendingString:[self writeFooter]];
     return new;
 }
 
 - (NSString *)writeHeader {
     return [NSString stringWithFormat:@"class %@: Mappable {", self.name];
+}
+
+- (NSString *)writeProperties {
+    
+    NSString *props = @"\n";
+    
+    for (WFProperty *prop in self.properties) {
+        props = [props stringByAppendingFormat:@"%@\n", prop.line];
+    }
+    
+    return props;
 }
 
 - (NSString *)writeInit {

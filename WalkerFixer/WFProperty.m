@@ -16,10 +16,12 @@
         
         self.line = line;
         
-        //var prop: type? = ""
-        NSArray *comp = [line componentsSeparatedByString:@" "];
-        self.name = [self removeLastCharacter:comp[1]];
-        self.type = [self removeLastCharacter:comp[2]];
+        NSString *nonWhite = [self removeWhitespaces:line];
+        NSString *nonVar = [nonWhite substringFromIndex:3];
+        
+        NSArray *comp = [nonVar componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@":="]];
+        self.name = [self removeLastCharacter:comp[0]];
+        self.type = [self removeLastCharacter:comp[1]];
     }
     
     return self;
@@ -36,8 +38,16 @@
     return [str substringToIndex:str.length-len];
 }
 
+- (NSString *)removeWhitespaces:(NSString *)str {
+    return [str stringByReplacingOccurrencesOfString:@" " withString:@""];
+}
+
 - (NSString *)fixedLine {
     return [NSString stringWithFormat:@"\t%@ <- map[\"%@\"]\n", self.name, self.name];
+}
+
+- (NSString *)description {
+    return [NSString stringWithFormat:@"|%@|: |%@|", self.name, self.type];
 }
 
 @end

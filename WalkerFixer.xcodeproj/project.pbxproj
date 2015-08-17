@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		B27EF5851B8273F2004AE6C6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B27EF5841B8273F2004AE6C6 /* main.m */; };
+		B27EF58D1B827604004AE6C6 /* WalkerFixer.m in Sources */ = {isa = PBXBuildFile; fileRef = B27EF58C1B827604004AE6C6 /* WalkerFixer.m */; };
+		B27EF5901B8276A1004AE6C6 /* WFClass.m in Sources */ = {isa = PBXBuildFile; fileRef = B27EF58F1B8276A1004AE6C6 /* WFClass.m */; };
+		B27EF5931B8276A9004AE6C6 /* WFProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = B27EF5921B8276A9004AE6C6 /* WFProperty.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +28,12 @@
 /* Begin PBXFileReference section */
 		B27EF5811B8273F2004AE6C6 /* WalkerFixer */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = WalkerFixer; sourceTree = BUILT_PRODUCTS_DIR; };
 		B27EF5841B8273F2004AE6C6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		B27EF58B1B827604004AE6C6 /* WalkerFixer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WalkerFixer.h; sourceTree = "<group>"; };
+		B27EF58C1B827604004AE6C6 /* WalkerFixer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WalkerFixer.m; sourceTree = "<group>"; };
+		B27EF58E1B8276A1004AE6C6 /* WFClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFClass.h; sourceTree = "<group>"; };
+		B27EF58F1B8276A1004AE6C6 /* WFClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFClass.m; sourceTree = "<group>"; };
+		B27EF5911B8276A9004AE6C6 /* WFProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFProperty.h; sourceTree = "<group>"; };
+		B27EF5921B8276A9004AE6C6 /* WFProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFProperty.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +67,12 @@
 			isa = PBXGroup;
 			children = (
 				B27EF5841B8273F2004AE6C6 /* main.m */,
+				B27EF58B1B827604004AE6C6 /* WalkerFixer.h */,
+				B27EF58C1B827604004AE6C6 /* WalkerFixer.m */,
+				B27EF58E1B8276A1004AE6C6 /* WFClass.h */,
+				B27EF58F1B8276A1004AE6C6 /* WFClass.m */,
+				B27EF5911B8276A9004AE6C6 /* WFProperty.h */,
+				B27EF5921B8276A9004AE6C6 /* WFProperty.m */,
 			);
 			path = WalkerFixer;
 			sourceTree = "<group>";
@@ -118,6 +133,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B27EF58D1B827604004AE6C6 /* WalkerFixer.m in Sources */,
+				B27EF5931B8276A9004AE6C6 /* WFProperty.m in Sources */,
+				B27EF5901B8276A1004AE6C6 /* WFClass.m in Sources */,
 				B27EF5851B8273F2004AE6C6 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

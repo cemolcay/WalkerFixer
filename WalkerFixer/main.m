@@ -7,11 +7,22 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "WalkerFixer.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        // insert code here...
-        NSLog(@"Hello, World!");
+        
+        NSString *dir = [NSString stringWithFormat:@"%@/Desktop/yemeksepeti_ios/yemeksepeti/YemeksepetiApi/BaseApi", NSHomeDirectory()];
+        NSDirectoryEnumerator *de = [[NSFileManager defaultManager] enumeratorAtPath:dir];
+        
+        WalkerFixer *fixer = [[WalkerFixer alloc] init];
+
+        for (NSString *file in de)
+            if ([[file pathExtension] isEqualToString:@"swift"])
+                [fixer fixFile:[NSString stringWithFormat:@"%@/%@", dir, file]];
+        
     }
+    
     return 0;
+    
 }

@@ -20,7 +20,7 @@
         self.mainDirectory = main;
         self.fileDirectory = file;
         
-        NSString *file = [self readFile:[self mainDirectory]];
+        NSString *file = [self readFile:[self originalFilePath]];
         [self detect:file];
     }
     
@@ -43,14 +43,46 @@
 
 - (void)detect:(NSString *)file {
 
+    file = [file stringByReplacingOccurrencesOfString:@" " withString:@""];
+    NSArray *lines = [file componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]];
+    
+    NSMutableArray *tempProps = [[NSMutableArray alloc] init];
+    
+    for (NSString *line in lines) {
+        
+        NSString *className = [self detectClass:line];
+        WFProperty *prop = [self detectProperty:line];
+        
+        if (className) {
+            self.name = className;
+        }
+        
+        if (prop) {
+            [tempProps addObject:prop];
+        }
+    }
+    
+    self.properties = [tempProps mutableCopy];
 }
 
-- (void)detectClass {
-
+- (NSString *)detectClass:(NSString *)line {
+    
+    if ([line hasPrefix:@"class"]) {
+        NSString *nonclass = [line substringFromIndex:5];
+        NSArray *comp = [nonclass componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@":{"]];
+        return comp[0];
+    }
+    
+    return nil;
 }
 
-- (void)detectProperties {
-
+- (WFProperty *)detectProperty:(NSString *)line {
+    
+    if ([line hasPrefix:@"var"]) {
+        return [[WFProperty alloc] initWithLine:line];
+    }
+    
+    return nil;
 }
 
 

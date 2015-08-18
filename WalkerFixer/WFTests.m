@@ -14,7 +14,8 @@
 @implementation WFTests
 
 - (void)testFixLogin {
-    NSString *dir = [NSString stringWithFormat:@"%@/Desktop/yemeksepeti_ios/yemeksepeti/YemeksepetiApi/LoginApi", NSHomeDirectory()];
+    
+    NSString *dir = [NSString stringWithFormat:@"%@/Desktop/yemeksepeti_ios/yemeksepeti/YemeksepetiApi/OAuthLoginApi", NSHomeDirectory()];
     NSDirectoryEnumerator *de = [[NSFileManager defaultManager] enumeratorAtPath:dir];
     
     WalkerFixer *fixer = [[WalkerFixer alloc] init];

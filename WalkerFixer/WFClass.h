@@ -16,6 +16,8 @@
 @property (nonatomic, strong) NSString *mainDirectory;
 @property (nonatomic, strong) NSString *fileDirectory;
 
+@property (nonatomic, assign) BOOL NSCodingEnabled;
+
 - (instancetype)initWithMainDirectory:(NSString *)main andFileDirectory:(NSString *)file;
 
 - (NSString *)write;

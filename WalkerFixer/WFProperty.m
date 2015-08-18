@@ -23,7 +23,7 @@
         NSString *nonWhite = [self removeWhitespaces:line];
         NSString *nonVar = [nonWhite substringFromIndex:3];
         
-        NSArray *comp = [nonVar componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@":="]];
+        NSArray *comp = [nonVar componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@":=/"]];
         self.name = [self removeLastCharacter:comp[0]];
         self.type = [self removeLastCharacter:comp[1]];
 
@@ -67,6 +67,28 @@
     return [NSString stringWithFormat:@"\t\t%@ <- map[\"%@\"]\n", self.name, self.name];
 }
 
+
+- (NSString *)encodeLine {
+    
+    if ([self.type isEqualToString:@"Int"]) {
+        return [NSString stringWithFormat:@"aCoder.encodeInteger(%@, forKey: \"%@\")", self.name, self.name];
+    } else if ([self.type isEqualToString:@"Float"]) {
+        return [NSString stringWithFormat:@"aCoder.encodeFloat(%@, forKey: \"%@\")", self.name, self.name];
+    } else {
+        return [NSString stringWithFormat:@"aCoder.encodeObject(%@, forKey: \"%@\")", self.name, self.name];
+    }
+}
+
+- (NSString *)decodeLine {
+    
+    if ([self.type isEqualToString:@"Int"]) {
+        return [NSString stringWithFormat:@"%@ = aDecoder.decodeIntegerForKey(\"%@\")", self.name, self.name];
+    } else if ([self.type isEqualToString:@"Float"]) {
+        return [NSString stringWithFormat:@"%@ = aDecoder.decodeFloatForKey(\"%@\")", self.name, self.name];
+    } else {
+        return [NSString stringWithFormat:@"%@ = aDecoder.decodeObjectForKey(\"%@\") as? %@", self.name, self.name, self.type];
+    }
+}
 
 #pragma mark - Description
 

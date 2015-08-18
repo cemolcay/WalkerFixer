@@ -19,6 +19,7 @@
     
         self.mainDirectory = main;
         self.fileDirectory = file;
+        self.NSCodingEnabled = NO;
         
         NSString *file = [self readFile:[self originalFilePath]];
         [self detect:file];
@@ -60,6 +61,8 @@
         if (prop) {
             [tempProps addObject:prop];
         }
+        
+        self.NSCodingEnabled = self.NSCodingEnabled || [self detectNSCoding:line];
     }
     
     self.properties = [tempProps mutableCopy];
@@ -85,6 +88,10 @@
     return nil;
 }
 
+- (BOOL)detectNSCoding:(NSString *)line {
+    return [line containsString:@"encodeWithCoder"];
+}
+
 
 #pragma mark - Read
 
@@ -101,6 +108,7 @@
     new = [new stringByAppendingString:[self writeProperties]];
     new = [new stringByAppendingString:[self writeInit]];
     new = [new stringByAppendingString:[self writeMapperFunc]];
+    new = [new stringByAppendingString:[self writeNSCoding]];
     new = [new stringByAppendingString:[self writeFooter]];
     return new;
 }
@@ -121,7 +129,7 @@
     
     NSString *header = [NSString stringWithFormat:infoHeader, self.name];
     
-    return [NSString stringWithFormat:@"%@\n\nclass %@: Mappable {", header, self.name];
+    return [NSString stringWithFormat:@"%@\n\nclass %@: YSObject%@ {", header, self.name, self.NSCodingEnabled ? @", NSCoding" : @""];
 }
 
 - (NSString *)writeProperties {
@@ -152,10 +160,41 @@
     return func;
 }
 
+- (NSString *)writeNSCoding {
+    
+    if (!self.NSCodingEnabled) {
+        return @"";
+    }
+    
+    NSString *coding = @"\n\n\t// MARK: NSCoding\n\n";
+    
+    // coder
+
+    coding = [coding stringByAppendingString:@"\t@objc required init (coder aDecoder: NSCoder) {\n\t\tsuper.init()\n\n"];
+    
+    for (WFProperty *prop in self.properties) {
+        coding = [coding stringByAppendingFormat:@"\t\t%@\n", [prop decodeLine]];
+    }
+    
+    coding = [coding stringByAppendingString:@"\t}\n\n"];
+    
+    
+    // decoder
+    
+    coding = [coding stringByAppendingString:@"\t@objc func encodeWithCoder(aCoder: NSCoder) {\n"];
+    
+    for (WFProperty *prop in self.properties) {
+        coding = [coding stringByAppendingFormat:@"\t\t%@\n", [prop encodeLine]];
+    }
+    
+    coding = [coding stringByAppendingString:@"\t}\n"];
+
+    return coding;
+}
+
 - (NSString *)writeFooter {
     return @"\n}";
 }
-
 
 #pragma mark - Save
 

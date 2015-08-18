@@ -21,4 +21,7 @@
 - (NSString *)fixedPropertyLine;
 - (NSString *)fixedMappingLine;
 
+- (NSString *)decodeLine;
+- (NSString *)encodeLine;
+
 @end

@@ -38,6 +38,7 @@
     return self;
 }
 
+
 #pragma mark - Helpers
 
 - (NSString *)removeLastCharacter:(NSString *)str {
@@ -55,6 +56,7 @@
     return [str stringByReplacingOccurrencesOfString:@" " withString:@""];
 }
 
+
 #pragma mark - Generators
 
 - (NSString *)fixedPropertyLine {
@@ -64,6 +66,7 @@
 - (NSString *)fixedMappingLine {
     return [NSString stringWithFormat:@"\t\t%@ <- map[\"%@\"]\n", self.name, self.name];
 }
+
 
 #pragma mark - Description
 

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B20E445A1B83167500F0B2FD /* WFTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B20E44591B83167500F0B2FD /* WFTests.m */; };
 		B27EF5851B8273F2004AE6C6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B27EF5841B8273F2004AE6C6 /* main.m */; };
 		B27EF58D1B827604004AE6C6 /* WalkerFixer.m in Sources */ = {isa = PBXBuildFile; fileRef = B27EF58C1B827604004AE6C6 /* WalkerFixer.m */; };
 		B27EF5901B8276A1004AE6C6 /* WFClass.m in Sources */ = {isa = PBXBuildFile; fileRef = B27EF58F1B8276A1004AE6C6 /* WFClass.m */; };
@@ -26,6 +27,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		B20E44581B83167500F0B2FD /* WFTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFTests.h; sourceTree = "<group>"; };
+		B20E44591B83167500F0B2FD /* WFTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFTests.m; sourceTree = "<group>"; };
 		B27EF5811B8273F2004AE6C6 /* WalkerFixer */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = WalkerFixer; sourceTree = BUILT_PRODUCTS_DIR; };
 		B27EF5841B8273F2004AE6C6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B27EF58B1B827604004AE6C6 /* WalkerFixer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WalkerFixer.h; sourceTree = "<group>"; };
@@ -67,6 +70,8 @@
 			isa = PBXGroup;
 			children = (
 				B27EF5841B8273F2004AE6C6 /* main.m */,
+				B20E44581B83167500F0B2FD /* WFTests.h */,
+				B20E44591B83167500F0B2FD /* WFTests.m */,
 				B27EF58B1B827604004AE6C6 /* WalkerFixer.h */,
 				B27EF58C1B827604004AE6C6 /* WalkerFixer.m */,
 				B27EF58E1B8276A1004AE6C6 /* WFClass.h */,
@@ -133,6 +138,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B20E445A1B83167500F0B2FD /* WFTests.m in Sources */,
 				B27EF58D1B827604004AE6C6 /* WalkerFixer.m in Sources */,
 				B27EF5931B8276A9004AE6C6 /* WFProperty.m in Sources */,
 				B27EF5901B8276A1004AE6C6 /* WFClass.m in Sources */,
@@ -253,6 +259,7 @@
 				B27EF58A1B8273F2004AE6C6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

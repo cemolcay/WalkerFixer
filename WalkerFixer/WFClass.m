@@ -84,7 +84,7 @@
 //  Copyright (c) 2015 yemeksepeti. All rights reserved.\n\
 //                                                      \n\
 //  Created with WalkerFixer                            \n\
-//  http://wwww.github.com/cemolcay/WalkerFixer         \n\
+//  http://www.github.com/cemolcay/WalkerFixer          \n\
 //";
     
     NSString *header = [NSString stringWithFormat:infoHeader, self.name];

@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>3871E872-728B-4EEC-A076-F001AE50FC2C</string>
 	<key>IDESourceControlProjectName</key>
-	<string>WalkerFixer</string>
+	<string>project</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>2F246DCB82579D99E9E08FC32D50E1F280EF12F5</key>
 		<string>https://github.com/cemolcay/WalkerFixer.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>WalkerFixer.xcodeproj</string>
+	<string>WalkerFixer.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>2F246DCB82579D99E9E08FC32D50E1F280EF12F5</key>

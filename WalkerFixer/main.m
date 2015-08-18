@@ -16,16 +16,18 @@ int main(int argc, const char * argv[]) {
         
         NSString *line1 = @"var someString: String?";
         NSString *line2 = @"var someInt    : Int?";
+        NSString *line3 = @"var someInt : Int? = 4";
         
         WFProperty *prop1 = [[WFProperty alloc] initWithLine:line1];
         WFProperty *prop2 = [[WFProperty alloc] initWithLine:line2];
+        WFProperty *prop3 = [[WFProperty alloc] initWithLine:line3];
         
         NSString *mainDir = [NSString stringWithFormat:@"%@/Desktop/yemeksepeti_ios/yemeksepeti/YemeksepetiApi/", NSHomeDirectory()];
         NSString *fileDir = @"BaseApi/YSRequest.swift";
         
         WFClass *wf = [[WFClass alloc] initWithMainDirectory:mainDir andFileDirectory:fileDir];
         [wf setName:@"FixRequest"];
-        [wf setProperties:@[prop1, prop2]];
+        [wf setProperties:@[prop1, prop2, prop3]];
         
         [wf save];
     }

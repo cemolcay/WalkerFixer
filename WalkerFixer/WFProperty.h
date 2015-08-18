@@ -14,8 +14,11 @@
 
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *type;
+@property (nonatomic, strong) NSString *value;
 
 - (instancetype)initWithLine:(NSString *)line;
-- (NSString *)fixedLine;
+
+- (NSString *)fixedPropertyLine;
+- (NSString *)fixedMappingLine;
 
 @end

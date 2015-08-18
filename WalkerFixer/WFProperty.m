@@ -10,9 +10,13 @@
 
 @implementation WFProperty
 
+#pragma mark - Init
+
 - (instancetype)initWithLine:(NSString *)line {
     
     if ((self = [super init])) {
+        
+        // var propName: Type = "value"
         
         self.line = line;
         
@@ -22,10 +26,19 @@
         NSArray *comp = [nonVar componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@":="]];
         self.name = [self removeLastCharacter:comp[0]];
         self.type = [self removeLastCharacter:comp[1]];
+
+        @try {
+            self.value = comp[2];
+        }
+        @catch (NSException *exception) {
+            NSLog(@"no comp[2]");
+        }
     }
     
     return self;
 }
+
+#pragma mark - Helpers
 
 - (NSString *)removeLastCharacter:(NSString *)str {
 
@@ -42,9 +55,17 @@
     return [str stringByReplacingOccurrencesOfString:@" " withString:@""];
 }
 
-- (NSString *)fixedLine {
-    return [NSString stringWithFormat:@"\t%@ <- map[\"%@\"]\n", self.name, self.name];
+#pragma mark - Generators
+
+- (NSString *)fixedPropertyLine {
+    return [NSString stringWithFormat:@"\n\tvar %@: %@? %@", self.name, self.type, self.value != nil ? [NSString stringWithFormat:@"= %@", self.value] : @""];
 }
+
+- (NSString *)fixedMappingLine {
+    return [NSString stringWithFormat:@"\t\t%@ <- map[\"%@\"]\n", self.name, self.name];
+}
+
+#pragma mark - Description
 
 - (NSString *)description {
     return [NSString stringWithFormat:@"|%@|: |%@|", self.name, self.type];

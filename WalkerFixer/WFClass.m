@@ -74,7 +74,22 @@
 }
 
 - (NSString *)writeHeader {
-    return [NSString stringWithFormat:@"class %@: Mappable {", self.name];
+    
+    NSString *infoHeader =
+@"//                                                    \n\
+//  %@.swift                                            \n\
+//  YSWebServices                                       \n\
+//                                                      \n\
+//  Created by Cem Olcay on 17/08/15.                   \n\
+//  Copyright (c) 2015 yemeksepeti. All rights reserved.\n\
+//                                                      \n\
+//  Created with WalkerFixer                            \n\
+//  http://wwww.github.com/cemolcay/WalkerFixer         \n\
+//";
+    
+    NSString *header = [NSString stringWithFormat:infoHeader, self.name];
+    
+    return [NSString stringWithFormat:@"%@\n\nclass %@: Mappable {", header, self.name];
 }
 
 - (NSString *)writeProperties {
@@ -82,25 +97,26 @@
     NSString *props = @"\n";
     
     for (WFProperty *prop in self.properties) {
-        props = [props stringByAppendingFormat:@"%@\n", prop.line];
+        props = [props stringByAppendingString:[prop fixedPropertyLine]];
     }
     
     return props;
 }
 
 - (NSString *)writeInit {
-    return [NSString stringWithFormat:@"\n\toverride class func newInstance(map: Map) -> Mappable? {\n\t\treturn %@()\n\t}\n", self.name];
+    return [NSString stringWithFormat:@"\n\n\toverride class func newInstance(map: Map) -> Mappable? {\n\t\treturn %@()\n\t}\n", self.name];
 }
 
 - (NSString *)writeMapperFunc {
     
     NSString *func = @"\n\toverride func mapping(map: Map) {\n";
+    func = [func stringByAppendingFormat:@"\t\tsuper.mapping(map)\n\n"];
     
     for (WFProperty *prop in self.properties) {
-        func = [func stringByAppendingString:[prop fixedLine]];
+        func = [func stringByAppendingString:[prop fixedMappingLine]];
     }
 
-    func = [func stringByAppendingString:@"\n\t}"];
+    func = [func stringByAppendingString:@"\t}"];
     return func;
 }
 

@@ -128,7 +128,7 @@
 //";
     
     NSString *header = [NSString stringWithFormat:infoHeader, self.name];
-    
+    header = [header stringByAppendingString:@"\n\nimport Foundation\nimport ObjectMapper"];
     return [NSString stringWithFormat:@"%@\n\nclass %@: YSObject%@ {", header, self.name, self.NSCodingEnabled ? @", NSCoding" : @""];
 }
 

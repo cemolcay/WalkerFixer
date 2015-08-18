@@ -16,7 +16,7 @@ int main(int argc, const char * argv[]) {
     @autoreleasepool {
         
         WFTests *tester = [[WFTests alloc] init];
-        [tester testFixLogin];
+        [tester testWalkerFixer];
     }
     
     return 0;

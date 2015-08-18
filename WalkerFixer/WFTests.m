@@ -15,7 +15,7 @@
 
 - (void)testFixLogin {
     
-    NSString *dir = [NSString stringWithFormat:@"%@/Desktop/yemeksepeti_ios/yemeksepeti/YemeksepetiApi/OAuthLoginApi", NSHomeDirectory()];
+    NSString *dir = [NSString stringWithFormat:@"%@/Desktop/YemeksepetiApi/OAuthLoginApi", NSHomeDirectory()];
     NSDirectoryEnumerator *de = [[NSFileManager defaultManager] enumeratorAtPath:dir];
     
     WalkerFixer *fixer = [[WalkerFixer alloc] init];
@@ -27,7 +27,7 @@
 
 - (void)testWalkerFixer {
     
-    NSString *dir = [NSString stringWithFormat:@"%@/Desktop/yemeksepeti_ios/yemeksepeti/YemeksepetiApi/", NSHomeDirectory()];
+    NSString *dir = [NSString stringWithFormat:@"%@/Desktop/YemeksepetiApi/", NSHomeDirectory()];
     NSDirectoryEnumerator *de = [[NSFileManager defaultManager] enumeratorAtPath:dir];
     
     WalkerFixer *fixer = [[WalkerFixer alloc] init];

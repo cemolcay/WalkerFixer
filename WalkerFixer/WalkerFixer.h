@@ -11,6 +11,6 @@
 @interface WalkerFixer : NSObject
 
 - (void)fixFileWithMainDirectory:(NSString *)mainDirectory andFileDirectory:(NSString *)fileDirectory;
-- (void)fixServiceCallsForFileAt:(NSString *)path;
+- (void)fixServiceCallsForFileAt:(NSString *)path fileName:(NSString *)fileName endpoint:(NSString *)endpoint;
 
 @end

@@ -16,17 +16,18 @@
 - (void)testServiceCalls {
 
     NSString *dir = [NSString stringWithFormat:@"%@/Desktop/Service", NSHomeDirectory()];
-    NSString *loginService = [NSString stringWithFormat:@"%@/OAuthLoginService.swift", dir];
-    NSLog(@"%@", loginService);
     
     WalkerFixer *fixer = [[WalkerFixer alloc] init];
-    [fixer fixServiceCallsForFileAt:loginService];
+    [fixer fixServiceCallsForFileAt:[NSString stringWithFormat:@"%@/CatalogService.swift", dir] fileName:@"Catalog" endpoint:@"YSCatalogEndpoint"];
+    [fixer fixServiceCallsForFileAt:[NSString stringWithFormat:@"%@/JokerService.swift", dir] fileName:@"Joker" endpoint:@"YSJokerEndpoint"];
+    [fixer fixServiceCallsForFileAt:[NSString stringWithFormat:@"%@/LiveSupportService.swift", dir] fileName:@"LiveSupport" endpoint:@"YSLiveSupportEndpoint"];
+    [fixer fixServiceCallsForFileAt:[NSString stringWithFormat:@"%@/OAuthLoginService.swift", dir] fileName:@"OAuthLogin" endpoint:@"YSOAuthLoginEndpoint"];
+    [fixer fixServiceCallsForFileAt:[NSString stringWithFormat:@"%@/OAuthUserService.swift", dir] fileName:@"OAuthUser" endpoint:@"YSOAuthUserEndpoint"];
+    [fixer fixServiceCallsForFileAt:[NSString stringWithFormat:@"%@/OrderService.swift", dir] fileName:@"Order" endpoint:@"YSOrderEndpoint"];
+    [fixer fixServiceCallsForFileAt:[NSString stringWithFormat:@"%@/PaymentService.swift", dir] fileName:@"Payment" endpoint:@"YSPaymentEndpoint"];
+    [fixer fixServiceCallsForFileAt:[NSString stringWithFormat:@"%@/SearchService.swift", dir] fileName:@"Search" endpoint:@"YSSearchEndpoint"];
+    [fixer fixServiceCallsForFileAt:[NSString stringWithFormat:@"%@/UserService.swift", dir] fileName:@"User" endpoint:@"YSUserEndpoint"];
     
-//    // for all files
-//    NSDirectoryEnumerator *de = [[NSFileManager defaultManager] enumeratorAtPath:dir];
-//    for (NSString *file in de)
-//        if ([[file pathExtension] isEqualToString:@"swift"])
-//            NSLog(@"%@", file);
 
 }
 

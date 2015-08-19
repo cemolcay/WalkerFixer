@@ -13,6 +13,23 @@
 
 @implementation WFTests
 
+- (void)testServiceCalls {
+
+    NSString *dir = [NSString stringWithFormat:@"%@/Desktop/Service", NSHomeDirectory()];
+    NSString *loginService = [NSString stringWithFormat:@"%@/OAuthLoginService.swift", dir];
+    NSLog(@"%@", loginService);
+    
+    WalkerFixer *fixer = [[WalkerFixer alloc] init];
+    [fixer fixServiceCallsForFileAt:loginService];
+    
+//    // for all files
+//    NSDirectoryEnumerator *de = [[NSFileManager defaultManager] enumeratorAtPath:dir];
+//    for (NSString *file in de)
+//        if ([[file pathExtension] isEqualToString:@"swift"])
+//            NSLog(@"%@", file);
+
+}
+
 - (void)testFixLogin {
     
     NSString *dir = [NSString stringWithFormat:@"%@/Desktop/YemeksepetiApi/OAuthLoginApi", NSHomeDirectory()];

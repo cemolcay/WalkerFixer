@@ -14,5 +14,6 @@
 - (void)testWalkerFixer;
 - (void)testWFProperty;
 - (void)testWFClass;
+- (void)testServiceCalls;
 
 @end
